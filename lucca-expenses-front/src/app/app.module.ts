@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ButtonComponent } from './components/button/button.component';
 import { ExpensesListComponent } from './components/expenses-list/expenses-list.component';
+import { ExpensesItemComponent } from './components/expenses-item/expenses-item.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { ExpensesListComponent } from './components/expenses-list/expenses-list.
     HeaderComponent,
     ButtonComponent,
     ExpensesListComponent,
+    ExpensesItemComponent,
   ],
   imports: [
     BrowserModule
