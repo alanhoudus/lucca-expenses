@@ -34,7 +34,6 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   }
 
   addExpense(expense: Expense) {
-    // this.expenseService.postExpenseItem(expense).subscribe(this.expenses.push(expense))
     const sub = this.expenseService.postExpenseItem(expense).subscribe((expense: Expense) => {
       console.log(expense);
     })
