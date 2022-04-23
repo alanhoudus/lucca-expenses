@@ -3,6 +3,12 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Expense } from 'src/app/Expenses';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  })
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,5 +24,9 @@ export class ExpenseService {
   deleteExpenseItem(expense: Expense): Observable<Expense> {
     const url = `${this.apiUrl}/${expense.id}`;
     return this.http.delete<Expense>(url);
+  }
+
+  postExpenseItem(expense: Expense): Observable<Expense> {
+    return this.http.post<Expense>(this.apiUrl, expense, httpOptions);
   }
 }

@@ -1,5 +1,5 @@
 export interface Expense {
-  id: string,
+  id?: string,
   purchasedOn: string,
   nature: string,
   originalAmount: {
@@ -11,6 +11,6 @@ export interface Expense {
     currency: string,
   },
   comment: string,
-  createdAt: string,
-  lastModifiedAt: string,
+  createdAt?: string,
+  lastModifiedAt?: string,
 }

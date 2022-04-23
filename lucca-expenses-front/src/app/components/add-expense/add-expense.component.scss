@@ -1,0 +1,59 @@
+@media (max-width: 720px) {
+  form {
+    margin: 1em 1.5em;
+
+    .form-control {
+
+      input, select, textarea {
+        width: 100%;
+        margin-bottom: 0.5em;
+        border-radius: 5px;
+      }
+
+      .form-error {
+        color: red;
+        margin-bottom: 1em;
+      }
+
+    }
+
+    .form-button {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      background-color: #233867;
+      color: white;
+      padding: 1em;
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  form {
+    margin: 1em 20%;
+
+    .form-control {
+
+      input, select, textarea {
+        width: 100%;
+        margin-bottom: 1em;
+        border-radius: 5px;
+      }
+
+      .form-error {
+        color: red;
+        margin-bottom: 2em;
+      }
+
+    }
+
+    .form-button {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      background-color: #233867;
+      color: white;
+      padding: 1em;
+    }
+  }
+}
