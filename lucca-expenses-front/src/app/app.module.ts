@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ButtonComponent } from './components/button/button.component';
 import { ExpensesListComponent } from './components/expenses-list/expenses-list.component';
-import { ExpensesItemComponent } from './components/expenses-item/expenses-item.component';
+import { ExpenseItemComponent } from './components/expense-item/expense-item.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -13,10 +14,11 @@ import { ExpensesItemComponent } from './components/expenses-item/expenses-item.
     HeaderComponent,
     ButtonComponent,
     ExpensesListComponent,
-    ExpensesItemComponent,
+    ExpenseItemComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

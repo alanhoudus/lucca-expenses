@@ -1,0 +1,11 @@
+<div class="expense-item">
+  <h2 class="expense-item-nature">
+    {{ expense.nature }} : {{ expense.originalAmount.amount + expense.originalAmount.currency}}
+  </h2>
+  <span class="expense-item-date">
+    {{ expense.purchasedOn }}
+  </span>
+  <p class="expense-item-comment">
+    {{ expense.comment }}
+  </p>
+</div>
