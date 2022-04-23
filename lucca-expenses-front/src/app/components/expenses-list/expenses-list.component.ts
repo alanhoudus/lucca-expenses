@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EXPENSES } from 'src/app/mock-data';
+import { ExpenseService } from 'src/app/services/expense.service';
+import { Expense } from 'src/app/Expenses';
 
 @Component({
   selector: 'app-expenses-list',
@@ -7,11 +8,14 @@ import { EXPENSES } from 'src/app/mock-data';
   styleUrls: ['./expenses-list.component.scss']
 })
 export class ExpensesListComponent implements OnInit {
-  expenses = EXPENSES;
+  expenses:Expense[] = [];
 
-  constructor() { }
+  constructor(private expenseService: ExpenseService) { }
 
   ngOnInit(): void {
+    this.expenseService.getExpensesData().subscribe((expenses) => (
+      this.expenses = expenses
+    ));
   }
 
 }

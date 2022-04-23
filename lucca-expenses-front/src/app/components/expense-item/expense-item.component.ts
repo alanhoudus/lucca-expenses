@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-// mockdata
+// interface
 import { Expense } from 'src/app/Expenses';
 // icons
 import { faTimes, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
