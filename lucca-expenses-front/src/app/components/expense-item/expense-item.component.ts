@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+// mockdata
 import { Expense } from 'src/app/Expenses';
+// icons
+import { faTimes, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-expense-item',
@@ -8,6 +11,9 @@ import { Expense } from 'src/app/Expenses';
 })
 export class ExpenseItemComponent implements OnInit {
   @Input() expense: Expense;
+  faTimes = faTimes;
+  faPenToSquare = faPenToSquare;
+
 
   constructor() { }
 
