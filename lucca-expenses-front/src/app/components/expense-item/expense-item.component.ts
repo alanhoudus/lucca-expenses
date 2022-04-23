@@ -12,13 +12,20 @@ import { faTimes, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 export class ExpenseItemComponent implements OnInit {
   @Input() expense: Expense;
   @Output() expenseToDelete: EventEmitter<Expense> = new EventEmitter()
-  faTimes = faTimes;
-  faPenToSquare = faPenToSquare;
+
+  public faTimes = faTimes;
+  public faPenToSquare = faPenToSquare;
+
+
 
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  test(value: any) {
+    console.log(value);
   }
 
   onDeleteExpense(expense: Expense) {
