@@ -2,5 +2,6 @@
   <app-expense-item
     *ngFor="let expense of expenses"
     [expense]="expense"
+    (expenseToDelete)="deleteExpense(expense)"
   ></app-expense-item>
 </div>

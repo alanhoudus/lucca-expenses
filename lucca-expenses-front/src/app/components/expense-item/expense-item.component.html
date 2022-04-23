@@ -1,21 +1,28 @@
 <div class="expense-item">
+
   <h2 class="expense-item-nature">
     {{ expense.nature }} : {{ expense.originalAmount.amount + expense.originalAmount.currency}}
   </h2>
+
   <fa-icon
     [icon]="faTimes"
     [ngStyle]="{'color' : 'red'}"
     class="expense-item-delete fa-2xl"
+    (click)="onDeleteExpense(expense)"
   ></fa-icon>
+
   <span class="expense-item-date">
     {{ expense.purchasedOn }}
   </span>
+
   <p class="expense-item-comment">
     {{ expense.comment }}
   </p>
+
   <fa-icon
   [icon]="faPenToSquare"
   [ngStyle]="{'color' : 'green'}"
   class="expense-item-edit fa-xl"
-></fa-icon>
+  ></fa-icon>
+
 </div>

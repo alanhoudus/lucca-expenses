@@ -5,12 +5,12 @@
       "purchasedOn": "2018-12-04",
       "nature": "Restaurant",
       "originalAmount": {
-          "amount": 17.0,
-          "currency": "GBP"
+        "amount": 17,
+        "currency": "GBP"
       },
       "convertedAmount": {
-          "amount": 19.09,
-          "currency": "EUR"
+        "amount": 19.09,
+        "currency": "EUR"
       },
       "comment": "Mission de 5 jours à Londres",
       "createdAt": "2018-12-05T14:00:34.435154Z",
@@ -21,8 +21,8 @@
       "purchasedOn": "2018-20-10",
       "nature": "Taxi",
       "originalAmount": {
-          "amount": 20.0,
-          "currency": "GBP"
+        "amount": 20,
+        "currency": "GBP"
       },
       "comment": "Mission de 2 jours à Paris",
       "createdAt": "2018-12-05T14:00:34.435154Z",
@@ -33,12 +33,12 @@
       "purchasedOn": "2018-02-08",
       "nature": "Spa",
       "originalAmount": {
-          "amount": 17.0,
-          "currency": "GBP"
+        "amount": 17,
+        "currency": "GBP"
       },
       "convertedAmount": {
-          "amount": 19.09,
-          "currency": "EUR"
+        "amount": 19.09,
+        "currency": "EUR"
       },
       "comment": "Mission de 5 jours à Londres",
       "createdAt": "2018-12-05T14:00:34.435154Z",

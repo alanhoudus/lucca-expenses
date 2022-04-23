@@ -14,4 +14,9 @@ export class ExpenseService {
   getExpensesData(): Observable<Expense[]> {
     return this.http.get<Expense[]>(this.apiUrl)
   }
+
+  deleteExpenseItem(expense: Expense): Observable<Expense> {
+    const url = `${this.apiUrl}/${expense.id}`;
+    return this.http.delete<Expense>(url);
+  }
 }

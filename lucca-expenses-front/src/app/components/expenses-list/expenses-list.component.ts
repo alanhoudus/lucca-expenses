@@ -18,4 +18,10 @@ export class ExpensesListComponent implements OnInit {
     ));
   }
 
+  deleteExpense(expense: Expense) {
+    this.expenseService.deleteExpenseItem(expense).subscribe(() => (
+      this.expenses = this.expenses.filter(exp => exp.id !== expense.id)
+    ));
+  }
+
 }
