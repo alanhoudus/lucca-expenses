@@ -10,7 +10,7 @@ export class UiService {
 
   constructor() { }
 
-  toggleAddTask(): void {
+  toggleAddExpense(): void {
     this.showAddExpense = !this.showAddExpense;
     this.subject.next(this.showAddExpense);
   }

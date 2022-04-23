@@ -2,8 +2,8 @@
   <div class="header-wrapper">
     <h1 class="header-title">lucca expenses</h1>
     <app-button
-      text="Add"
-      color="#FF851C"
+      text="{{ showAddExpense ? 'Close' : 'New' }}"
+      color="{{ showAddExpense ? 'red' : '#FF851C' }}"
       (btnClick)="toggleAddExpense()"
     ></app-button>
   </div>

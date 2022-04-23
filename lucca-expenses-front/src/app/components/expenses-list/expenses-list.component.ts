@@ -26,18 +26,22 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
     }
   }
 
-  deleteExpense(expense: Expense) {
-    const sub = this.expenseService.deleteExpenseItem(expense).subscribe(() => (
+  deleteExpense(expense: Expense): void {
+    const newSub = this.expenseService
+    .deleteExpenseItem(expense)
+    .subscribe(() => (
       this.expenses = this.expenses.filter(exp => exp.id !== expense.id)
     ));
-    this.subscriptions.push(sub);
+    this.subscriptions.push(newSub);
   }
 
-  addExpense(expense: Expense) {
-    const sub = this.expenseService.postExpenseItem(expense).subscribe((expense: Expense) => {
-      console.log(expense);
+  addExpense(expense: Expense): void {
+    const newSub = this.expenseService
+    .postExpenseItem(expense)
+    .subscribe((expense: Expense) => {
+      this.expenses.push(expense);
     })
-    this.subscriptions.push(sub);
+    this.subscriptions.push(newSub);
   }
 
 }

@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()">
+<form *ngIf="showAddExpense" (ngSubmit)="onSubmit()">
   <div class="form-control">
     <label for="nature">Nature of the expense : </label>
     <input required type="text" name="nature" [(ngModel)]="nature" id="nature" placeholder="Restaurant, hotel.." />

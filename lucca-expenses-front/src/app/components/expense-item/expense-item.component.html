@@ -1,4 +1,4 @@
-<div class="expense-item">
+<div class="expense-item" (click)="test(expense)">
 
   <h2 class="expense-item-nature">
     {{ expense.nature }} : {{ expense.originalAmount.amount + expense.originalAmount.currency}}
