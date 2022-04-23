@@ -1,0 +1,32 @@
+<form (ngSubmit)="onSubmit()">
+  <div class="form-control">
+    <label for="nature">Nature of the expense : </label>
+    <input required type="text" name="nature" [(ngModel)]="nature" id="nature" placeholder="Restaurant, hotel.." />
+    <div class="form-error" *ngIf="natureError">{{ natureError }}</div>
+  </div>
+  <div class="form-control">
+    <label for="date">Date of the expense : </label>
+    <input required type="date" name="date" [(ngModel)]="date" id="date"/>
+    <div class="form-error" *ngIf="dateError">{{ dateError }}</div>
+  </div>
+  <div class="form-control">
+    <label for="price">Price of the expense : </label>
+    <input required type="number" name="price" [(ngModel)]="price" id="price" placeholder="20,00.." />
+    <div class="form-error" *ngIf="priceError">{{ priceError }}</div>
+  </div>
+  <div class="form-control">
+    <label for="currency">Currency : </label>
+    <select id="currency" name="currency" [(ngModel)]="currency">
+      <option disabled selected>Select a currency</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+      <option value="USD">USD</option>
+    </select>
+    <div class="form-error" *ngIf="currencyError">{{ currencyError }}</div>
+  </div>
+  <div class="form-control">
+    <label for="comment">Comment : </label>
+    <textarea maxlength="60" spellcheck name="comment" [(ngModel)]="comment" id="comment" placeholder="8 days in New York..."></textarea>
+  </div>
+  <input class="form-button" type="submit" value="Save Expense">
+</form>
