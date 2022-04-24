@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { UiService } from 'src/app/services/ui.service';
 import { Subscription } from 'rxjs';
+import { Expense } from 'src/app/Expenses';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,9 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  @Input() expensesAmount: number;
+  @Input() totalExpenses: number;
+
+  public expenses: Expense[] = [];
   public showAddExpense: boolean = false;
   private subscription: Subscription;
   private subscriptions: Subscription[] = [];
@@ -22,15 +25,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.uiService.getExpensesAmount().subscribe((expenses: Expense[]) => (
+      this.totalExpenses = expenses.length
+    ))
   }
 
   ngOnDestroy(): void {
+    // removing the subscriptions
     for (const sub of this.subscriptions) {
       sub.unsubscribe();
     }
   }
 
+  // Successful submit was made
   toggleAddExpense(): void {
-    this.uiService.toggleAddExpense()
+    // reverse showAddExpense (to close the form)
+    this.uiService.toggleAddExpense();
+    this.ngOnInit();
   }
 }

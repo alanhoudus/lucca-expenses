@@ -41,7 +41,7 @@ export class AddExpenseComponent implements OnInit, OnDestroy {
       sub.unsubscribe();
     }
   }
-
+  // TODO Array of errors
   onSubmit(): void {
     if (!this.nature) {
       this.natureError = 'Please, add a nature for the expense'

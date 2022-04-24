@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +6,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public expensesAmount: number;
+  public totalExpenses: number;
 
-  getExpensesAmount(amount: number): void {
-    this.expensesAmount = amount;
+  newTotalExpenses(amount: number): void {
+    this.totalExpenses = amount;
+    console.log(amount);
   }
-
-  title = 'lucca-expenses-front';
-
 
 }
