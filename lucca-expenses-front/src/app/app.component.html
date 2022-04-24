@@ -1,2 +1,2 @@
-<app-header></app-header>
-<app-expenses-list></app-expenses-list>
+<app-header [expensesAmount]="expensesAmount"></app-header>
+<app-expenses-list (shareExpensesAmountToParent)="getExpensesAmount($event)" ></app-expenses-list>
