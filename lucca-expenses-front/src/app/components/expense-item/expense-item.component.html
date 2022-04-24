@@ -1,8 +1,44 @@
-<div class="expense-item" (click)="test(expense)">
+<div class="expense-item">
 
-  <h2 class="expense-item-nature">
-    {{ expense.nature }} : {{ expense.originalAmount.amount + expense.originalAmount.currency}}
-  </h2>
+  <div *ngIf="!editExpense" class="expense-element">
+    <h2 class="expense-element-nature" >
+      {{ expense.nature }} : {{ expense.originalAmount.amount + expense.originalAmount.currency}}
+    </h2>
+    <span class="expense-element-date">
+      {{ expense.purchasedOn }}
+    </span>
+    <p class="expense-element-comment">
+      {{ expense.comment }}
+    </p>
+  </div>
+
+  <form *ngIf="editExpense" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+      <label for="nature" >Nature of the expense : </label>
+      <input [(ngModel)]="currentNatureEdit" [ngClass]="{ error: natureError }" required type="text" name="nature" id="nature" placeholder="Restaurant, hotel.." value="{{ currentNatureEdit }}">
+    </div>
+    <div class="form-control">
+      <label for="date">Date of the expense : </label>
+      <input [(ngModel)]="currentDateEdit" [ngClass]="{ error: dateError }" required type="date" name="date" id="date" value="{{ currentDateEdit }}" />
+    </div>
+    <div class="form-control">
+      <label for="price">Price of the expense : </label>
+      <input [(ngModel)]="currentPriceEdit" [ngClass]="{ error: priceError }" required type="number" name="price" id="price" placeholder="20,00.." value="{{ currentPriceEdit }}" />
+    </div>
+    <div class="form-control">
+      <label for="currency">Currency : </label>
+      <select [(ngModel)]="currentCurrencyEdit" [ngClass]="{ error: currencyError }" id="currency" name="currency" >
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="USD">USD</option>
+      </select>
+    </div>
+    <div class="form-control">
+      <label for="comment">Comment : </label>
+      <textarea [(ngModel)]="currentCommentEdit" maxlength="60" spellcheck name="comment"  id="comment" placeholder="8 days in New York..." value="{{ currentCommentEdit }}" ></textarea>
+    </div>
+    <input class="form-button" type="submit" value="Save Expense">
+  </form>
 
   <fa-icon
     [icon]="faTimes"
@@ -11,18 +47,12 @@
     (click)="onDeleteExpense(expense)"
   ></fa-icon>
 
-  <span class="expense-item-date">
-    {{ expense.purchasedOn }}
-  </span>
-
-  <p class="expense-item-comment">
-    {{ expense.comment }}
-  </p>
-
   <fa-icon
-  [icon]="faPenToSquare"
-  [ngStyle]="{'color' : 'green'}"
-  class="expense-item-edit fa-xl"
+    *ngIf="!editExpense"
+    [icon]="faPenToSquare"
+    [ngStyle]="{'color' : 'green'}"
+    class="expense-item-edit fa-xl"
+    (click)="toggleEditForm(); getCurrentExpense(expense)"
   ></fa-icon>
 
 </div>

@@ -29,4 +29,9 @@ export class ExpenseService {
   postExpenseItem(expense: Expense): Observable<Expense> {
     return this.http.post<Expense>(this.apiUrl, expense, httpOptions);
   }
+
+  putExpenseItem(editedExpense: Expense): Observable<Expense> {
+    const url = `${this.apiUrl}/${editedExpense.id}`;
+    return this.http.put<Expense>(url, editedExpense, httpOptions);
+  }
 }
