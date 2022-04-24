@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output, EventEmitter } from '@angular/core';
 import { ExpenseService } from 'src/app/services/expense.service';
 import { Expense } from 'src/app/Expenses';
 import { Subscription } from 'rxjs';
@@ -9,15 +9,19 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./expenses-list.component.scss']
 })
 export class ExpensesListComponent implements OnInit, OnDestroy {
-  expenses: Expense[] = [];
+  @Output() shareExpensesAmountToParent: EventEmitter<number> = new EventEmitter();
+
+  public expenses: Expense[] = [];
   private subscriptions: Subscription[] = [];
+  public expensesAmount: any;
 
   constructor(private expenseService: ExpenseService) { }
 
   ngOnInit(): void {
-    this.expenseService.getExpensesData().subscribe((expenses) => (
-      this.expenses = expenses
-    ));
+    this.expenseService.getExpensesData().subscribe((expenses) => {
+      this.expenses = expenses;
+      this.shareExpensesAmountToParent.emit(expenses.length);
+  });
   }
 
   ngOnDestroy(): void {
