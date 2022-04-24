@@ -15,7 +15,7 @@ export class AddExpenseComponent implements OnInit, OnDestroy {
   public natureError: string = '';
   public date: string;
   public dateError: string = '';
-  public price: string;
+  public price: number;
   public priceError: string = '';
   public currency: string;
   public currencyError: string = '';
@@ -72,7 +72,7 @@ export class AddExpenseComponent implements OnInit, OnDestroy {
         nature: this.nature,
         purchasedOn: this.date,
         originalAmount: {
-          amount: parseInt(this.price),
+          amount: this.price,
           currency: this.currency
         },
         comment: this.comment
@@ -82,8 +82,11 @@ export class AddExpenseComponent implements OnInit, OnDestroy {
 
       this.nature = '';
       this.date = '';
-      this.price = '';
+      this.price = parseInt('');
       this.comment = '';
+      this.currency = 'Select a currency';
+
+      this.uiService.toggleAddExpense();
     }
   }
 }

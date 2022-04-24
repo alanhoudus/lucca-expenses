@@ -44,4 +44,12 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
     this.subscriptions.push(newSub);
   }
 
+  putExpense(editedExpense: Expense): void {
+    const newSub = this.expenseService
+    .putExpenseItem(editedExpense)
+    .subscribe();
+    this.subscriptions.push(newSub);
+    this.ngOnInit();
+  }
+
 }
