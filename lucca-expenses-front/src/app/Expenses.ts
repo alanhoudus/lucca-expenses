@@ -8,7 +8,7 @@ export interface Expense {
     amount: number,
     currency: string
   },
-  convertedAmount?: {
+  convertedAmount: {
     amount: number,
     currency: string,
   },

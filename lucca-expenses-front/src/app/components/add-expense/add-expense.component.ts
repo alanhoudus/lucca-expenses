@@ -15,12 +15,15 @@ export class AddExpenseComponent implements OnInit, OnDestroy {
   public natureError: string = '';
   public date: string;
   public dateError: string = '';
-  public price: number;
+  public originalPrice: number;
   public priceError: string = '';
-  public currency: string;
+  public originalCurrency: string;
   public currencyError: string = '';
   public comment: string;
   public showAddExpense: boolean;
+  private convertedPrice: number;
+  private convertedCurrency: string = 'EUR';
+
   private subscription: Subscription;
   private subscriptions: Subscription[] = [];
 
@@ -55,25 +58,39 @@ export class AddExpenseComponent implements OnInit, OnDestroy {
     else if (this.date) {
       this.dateError = '';
     }
-    if (!this.price) {
+    if (!this.originalPrice) {
       this.priceError = 'Please, add a price for the expense'
     }
-    else if (this.price) {
+    else if (this.originalPrice) {
       this.priceError = '';
     }
-    if (!this.currency) {
+    if (!this.originalCurrency) {
       this.currencyError = 'Please, select a currency for the expense'
     }
-    else if (this.currency) {
+    else if (this.originalCurrency) {
       this.currencyError = '';
+
+      if (this.originalCurrency === 'USD') {
+        this.convertedPrice = this.originalPrice * 0.93;
+      }
+      else if(this.originalCurrency === 'GBP') {
+        this.convertedPrice = this.originalPrice * 1.19;
+      }
+      else {
+        this.convertedPrice = this.originalPrice;
+      }
     }
-    if (this.nature && this.date && this.price && this.currency) {
+    if (this.nature && this.date && this.originalPrice && this.originalCurrency) {
       const newExpense = {
         nature: this.nature,
         purchasedOn: this.date,
         originalAmount: {
-          amount: this.price,
-          currency: this.currency
+          amount: parseInt(this.originalPrice.toFixed(2)),
+          currency: this.originalCurrency
+        },
+        convertedAmount: {
+          amount: this.convertedPrice,
+          currency: this.convertedCurrency
         },
         comment: this.comment
       }
@@ -82,9 +99,9 @@ export class AddExpenseComponent implements OnInit, OnDestroy {
 
       this.nature = '';
       this.date = '';
-      this.price = parseInt('');
+      this.originalPrice = parseInt('');
       this.comment = '';
-      this.currency = 'Select a currency';
+      this.originalCurrency = 'Select a currency';
 
       this.uiService.toggleAddExpense();
     }
