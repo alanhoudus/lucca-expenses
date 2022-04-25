@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Inject, LOCALE_ID } from '@angular/core';
 // interface
 import { Expense } from 'src/app/Expenses';
 // icons
@@ -21,6 +21,7 @@ export class ExpenseItemComponent implements OnInit {
   public currentCommentEdit: string = '';
   private currentExpenseId: string | undefined = '';
 
+
   public natureError: boolean = false;
   public dateError: boolean = false;
   public priceError: boolean = false;
@@ -32,7 +33,9 @@ export class ExpenseItemComponent implements OnInit {
 
   public editExpense: boolean = false;
 
-  constructor() { }
+
+  constructor(@Inject(LOCALE_ID) public locale: string) {
+  }
 
   ngOnInit(): void {
   }

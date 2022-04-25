@@ -17,17 +17,17 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
   public currentPageNumber: number = 1;
 
+  public dateFilter: string = '';
+  public filter: string = '';
+
   public ArrowLeft = faArrowLeft;
   public ArrowRight= faArrowRight;
 
   constructor(private expenseService: ExpenseService) {}
 
   ngOnInit(): void {
-    this.expenseService.getCurrentExpensesPageData(this.currentPageNumber).subscribe((currentExpenses: Expense[]) => (
-      this.currentExpensesPage = currentExpenses));
-
-    this.expenseService.getTotalExpensesData().subscribe((totalExpenses: Expense[]) => (
-      this.totalExpenses = totalExpenses));
+  this.getCurrentPageDatas();
+  this.getAllExpenses();
   }
 
   ngOnDestroy(): void {
@@ -37,6 +37,42 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Reloads the first page with default data
+   */
+  unfilter() {
+    this.filter = '';
+    this.dateFilter = '';
+    this.currentPageNumber = 1;
+    this.getCurrentPageDatas();
+  }
+
+  /**
+   * Filters results on the dateFilter
+   */
+  filterSubmit() {
+
+    this.expenseService.getFilteredExpensesData(this.dateFilter, this.filter, this.currentPageNumber).subscribe((filteredExpenses) => {
+      this.currentPageNumber = 1;
+      this.currentExpensesPage = filteredExpenses;
+    });
+  }
+
+  /**
+   * Get the classic expenses data
+   */
+  getCurrentPageDatas() {
+    this.expenseService.getCurrentExpensesPageData(this.currentPageNumber).subscribe((currentExpenses: Expense[]) => (
+      this.currentExpensesPage = currentExpenses));
+  }
+
+  /**
+   * Get all the datas to get the length of the collection
+   */
+  getAllExpenses() {
+    this.expenseService.getTotalExpensesData().subscribe((totalExpenses: Expense[]) => (
+      this.totalExpenses = totalExpenses));
+  }
   /**
    * Decrements the currentPageNumber to display a new page
    */
