@@ -22,6 +22,33 @@
       }
     }
 
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .form-group {
+        width: 100%;
+        text-align: center;
+      }
+
+      .radios {
+        margin-bottom: 0.5em;
+      }
+
+      .submit-button {
+        margin-top: 0.5em;
+        width: 45%;
+        border: none;
+        border-radius: 5px;
+      }
+
+      .submit-button:first-child {
+        background-color: #233867;
+        color: white;
+      }
+    }
+
   }
 
 }
@@ -47,6 +74,38 @@
 
       &.right {
         right: 15%;
+      }
+    }
+
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .form-group {
+        width: 100%;
+        text-align: center;
+      }
+
+      .radios {
+        margin-bottom: 0.5em;
+
+        input {
+          margin-right: 1.5em;
+        }
+      }
+
+      .submit-button {
+        margin-top: 0.5em;
+        width: 45%;
+        border: none;
+        border-radius: 5px;
+      }
+
+      .submit-button:first-child {
+        background-color: #233867;
+        color: white;
       }
     }
   }

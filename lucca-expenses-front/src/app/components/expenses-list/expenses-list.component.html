@@ -3,6 +3,28 @@
 >
 </app-add-expense>
 <div class="expenses-list">
+  <div>
+    <form (ngSubmit)="filterSubmit()">
+      <div class="form-group radios" >
+        Trier par :
+          <label for="modifiedAt">Créé</label>
+          <input [(ngModel)]="filter" type="radio" name="createdAt" id="createdAt" value="createdAt">
+          <label for="modifiedAt">Acheté</label>
+          <input [(ngModel)]="filter" type="radio" name="purchasedOn" id="purchasedOn" value="purchasedOn">
+          <label for="modifiedAt">Modifié</label>
+          <input [(ngModel)]="filter" type="radio" name="modifiedAt" id="modifiedAt" value="modifiedAt">
+        </div>
+        <div class="form-group">
+          <label for="dateFilter">...après le : </label>
+          <input name="dateFilter" id="dateFilter" [(ngModel)]="dateFilter" type="date">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="submit-button" value="Filtrer">
+          <input type="button" (click)="unfilter()" class="submit-button" value="Retirer le filtre">
+        </div>
+    </form>
+
+  </div>
   <app-expense-item
     *ngFor="let expense of currentExpensesPage"
     [expense]="expense"
