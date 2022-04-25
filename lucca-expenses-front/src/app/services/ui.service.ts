@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { Expense } from '../Expenses';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +9,9 @@ import { Observable, Subject } from 'rxjs';
 export class UiService {
   private showAddExpense: boolean = false;
   private subject = new Subject<any>();
+  private apiUrl = 'http://localhost:3000/expenseItems'
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   toggleAddExpense(): void {
     this.showAddExpense = !this.showAddExpense;
@@ -17,5 +20,9 @@ export class UiService {
 
   onToggle(): Observable<any> {
     return this.subject.asObservable();
+  }
+
+  getExpensesAmount(): Observable<Expense[]> {
+    return this.http.get<Expense[]>(this.apiUrl);
   }
 }

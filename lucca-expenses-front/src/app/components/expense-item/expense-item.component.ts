@@ -46,6 +46,7 @@ export class ExpenseItemComponent implements OnInit {
     this.currentExpenseId = expense.id;
   }
 
+  // TODO Array of errors
   onSubmit():void {
     if(!this.currentNatureEdit) {
       this.natureError = true;

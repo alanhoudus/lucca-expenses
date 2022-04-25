@@ -2,10 +2,10 @@
   "expenseItems": [
     {
       "id": "727212a0-4d73-4615-bd23-d7df6f562491",
-      "purchasedOn": "2018-12-04",
+      "purchasedOn": "2001-02-18",
       "nature": "Restaurant",
       "originalAmount": {
-        "amount": 17,
+        "amount": 42,
         "currency": "GBP"
       },
       "convertedAmount": {
@@ -14,7 +14,7 @@
       },
       "comment": "Mission de 5 jours à Londres",
       "createdAt": "2018-12-05T14:00:34.435154Z",
-      "lastModifiedAt": "2018-12-05T14:00:34.435154Z"
+      "lastModifiedAt": "2022-04-24T00:15:26.831Z"
     },
     {
       "id": "418481",
@@ -43,6 +43,231 @@
       "comment": "Mission de 5 jours à Londres",
       "createdAt": "2018-12-05T14:00:34.435154Z",
       "lastModifiedAt": "2018-12-05T14:00:34.435154Z"
+    },
+    {
+      "nature": "Restaurant",
+      "purchasedOn": "2022-04-12",
+      "originalAmount": {
+        "amount": 68,
+        "currency": "EUR"
+      },
+      "comment": "Voyage Paris",
+      "createdAt": "2022-04-23T17:03:12.243Z",
+      "lastModifiedAt": "2022-04-23T23:58:35.448Z",
+      "id": "0bb35f1d-1d81-4389-9cad-17aa557f8a82"
+    },
+    {
+      "nature": "Piscine",
+      "purchasedOn": "88425-02-20",
+      "originalAmount": {
+        "amount": 2550,
+        "currency": "GBP"
+      },
+      "createdAt": "2022-04-24T16:54:54.074Z",
+      "lastModifiedAt": "2022-04-24T16:54:54.074Z",
+      "id": "1eb00d78-982f-4c4e-b52f-7ae9eb7a2933"
+    },
+    {
+      "nature": "Diner",
+      "purchasedOn": "5699-02-18",
+      "originalAmount": {
+        "amount": 120,
+        "currency": "USD"
+      },
+      "comment": "",
+      "createdAt": "2022-04-24T16:55:10.069Z",
+      "lastModifiedAt": "2022-04-24T16:55:10.069Z",
+      "id": "a3608950-8ef3-40c3-95d1-e05babf58df4"
+    },
+    {
+      "nature": "Bar",
+      "purchasedOn": "2020-07-22",
+      "originalAmount": {
+        "amount": 12,
+        "currency": "EUR"
+      },
+      "comment": "",
+      "createdAt": "2022-04-24T16:55:29.491Z",
+      "lastModifiedAt": "2022-04-24T16:55:29.491Z",
+      "id": "4502a04a-99bb-4f4f-8b86-dcc6424a2dcd"
+    },
+    {
+      "nature": "Newtest",
+      "purchasedOn": "2022-08-12",
+      "originalAmount": {
+        "amount": 25,
+        "currency": "USD"
+      },
+      "comment": "",
+      "createdAt": "2022-04-24T18:42:26.916Z",
+      "lastModifiedAt": "2022-04-24T18:42:26.916Z",
+      "id": "0d4921d0-6b26-44a8-8240-46e25fd49c6a"
+    },
+    {
+      "nature": "Courses",
+      "purchasedOn": "2022-07-18",
+      "originalAmount": {
+        "amount": 68,
+        "currency": "EUR"
+      },
+      "createdAt": "2022-04-24T18:55:54.105Z",
+      "lastModifiedAt": "2022-04-24T18:55:54.105Z",
+      "id": "b8e6b3b7-6bc3-4786-a743-fab97275f4e8"
+    },
+    {
+      "nature": "fezaoifbazefoi",
+      "purchasedOn": "1815-08-15",
+      "originalAmount": {
+        "amount": 27827,
+        "currency": "EUR"
+      },
+      "createdAt": "2022-04-24T19:16:58.887Z",
+      "lastModifiedAt": "2022-04-24T19:16:58.887Z",
+      "id": "1a21e741-fa40-4fc4-880a-4fbab1e23ce9"
+    },
+    {
+      "nature": "efzegzeg",
+      "purchasedOn": "1877-12-12",
+      "originalAmount": {
+        "amount": 57575,
+        "currency": "EUR"
+      },
+      "createdAt": "2022-04-24T19:18:20.112Z",
+      "lastModifiedAt": "2022-04-24T19:18:20.112Z",
+      "id": "4ec6c025-70f3-4503-a9d7-65e161cff20e"
+    },
+    {
+      "nature": "nouveau",
+      "purchasedOn": "1818-12-15",
+      "originalAmount": {
+        "amount": 222,
+        "currency": "EUR"
+      },
+      "createdAt": "2022-04-24T19:21:07.959Z",
+      "lastModifiedAt": "2022-04-24T19:21:07.959Z",
+      "id": "6f0c3525-5cdf-4c32-a551-12451191decc"
+    },
+    {
+      "nature": "Aaaaa",
+      "purchasedOn": "0018-05-11",
+      "originalAmount": {
+        "amount": 1518,
+        "currency": "GBP"
+      },
+      "createdAt": "2022-04-24T19:24:03.951Z",
+      "lastModifiedAt": "2022-04-24T19:24:03.951Z",
+      "id": "4d1a4854-adf0-454b-ae15-e93a8f0c2b82"
+    },
+    {
+      "nature": "aaaa",
+      "purchasedOn": "2222-02-20",
+      "originalAmount": {
+        "amount": 222,
+        "currency": "EUR"
+      },
+      "createdAt": "2022-04-24T19:25:07.673Z",
+      "lastModifiedAt": "2022-04-24T19:25:07.673Z",
+      "id": "af2e65b4-9222-4113-8c41-a098948530bc"
+    },
+    {
+      "nature": "jean neymar",
+      "purchasedOn": "8525-05-22",
+      "originalAmount": {
+        "amount": 4418,
+        "currency": "GBP"
+      },
+      "createdAt": "2022-04-24T19:25:56.977Z",
+      "lastModifiedAt": "2022-04-24T19:25:56.977Z",
+      "id": "a63733f7-0e0a-459a-871b-c4a2ea153b4b"
+    },
+    {
+      "nature": "fzefzef",
+      "purchasedOn": "181818-08-25",
+      "originalAmount": {
+        "amount": 15658,
+        "currency": "GBP"
+      },
+      "createdAt": "2022-04-24T19:31:39.098Z",
+      "lastModifiedAt": "2022-04-24T19:31:39.098Z",
+      "id": "8184de43-7bce-433c-b285-c191486bb455"
+    },
+    {
+      "nature": "jajoute",
+      "purchasedOn": "1111-12-12",
+      "originalAmount": {
+        "amount": 2728,
+        "currency": "EUR"
+      },
+      "createdAt": "2022-04-24T19:32:25.048Z",
+      "lastModifiedAt": "2022-04-24T19:32:25.048Z",
+      "id": "6747ba58-42bf-4e41-94ad-7f430d307dea"
+    },
+    {
+      "nature": "aled",
+      "purchasedOn": "14848-12-12",
+      "originalAmount": {
+        "amount": 1218,
+        "currency": "EUR"
+      },
+      "createdAt": "2022-04-24T19:33:14.807Z",
+      "lastModifiedAt": "2022-04-24T19:33:14.807Z",
+      "id": "53783111-4b29-4731-8db4-f0e2f8c82f5d"
+    },
+    {
+      "nature": "nouveau",
+      "purchasedOn": "5188-02-12",
+      "originalAmount": {
+        "amount": 188,
+        "currency": "EUR"
+      },
+      "createdAt": "2022-04-24T19:35:14.654Z",
+      "lastModifiedAt": "2022-04-24T19:35:14.654Z",
+      "id": "87b59357-e69a-4376-acd3-60730db4bdf3"
+    },
+    {
+      "nature": "aaa",
+      "purchasedOn": "0082-05-12",
+      "originalAmount": {
+        "amount": 28,
+        "currency": "GBP"
+      },
+      "createdAt": "2022-04-24T19:37:22.511Z",
+      "lastModifiedAt": "2022-04-24T19:37:22.511Z",
+      "id": "67ad191a-e876-4ec4-b2bc-0e9f1238dea0"
+    },
+    {
+      "nature": "seazer",
+      "purchasedOn": "52158-02-12",
+      "originalAmount": {
+        "amount": 1818,
+        "currency": "EUR"
+      },
+      "comment": "",
+      "createdAt": "2022-04-24T19:45:08.387Z",
+      "lastModifiedAt": "2022-04-24T19:45:08.387Z",
+      "id": "8ccf5510-d79a-4630-b50d-62016af7b88d"
+    },
+    {
+      "nature": "nouveau",
+      "purchasedOn": "4856-05-12",
+      "originalAmount": {
+        "amount": 1858,
+        "currency": "EUR"
+      },
+      "createdAt": "2022-04-24T20:04:37.755Z",
+      "lastModifiedAt": "2022-04-24T20:04:37.755Z",
+      "id": "ea092ebd-e025-42c0-b86d-7ad545fd0a60"
+    },
+    {
+      "nature": "blabla",
+      "purchasedOn": "0008-11-17",
+      "originalAmount": {
+        "amount": 188,
+        "currency": "EUR"
+      },
+      "createdAt": "2022-04-24T20:05:03.353Z",
+      "lastModifiedAt": "2022-04-24T20:05:03.353Z",
+      "id": "34b28998-65c1-46ed-b899-43e73cfb94c8"
     }
   ]
 }

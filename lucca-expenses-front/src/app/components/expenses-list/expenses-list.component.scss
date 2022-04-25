@@ -1,11 +1,53 @@
 @media (max-width: 720px) {
   .expenses-list {
     margin: 2em 0;
+
+    &-pagination {
+      position: relative;
+    }
+
+    .pagination-number {
+      text-align: center;
+    }
+
+    .arrow {
+      position: absolute;
+
+      &.left {
+        left: 5%;
+      }
+
+      &.right {
+        right: 5%;
+      }
+    }
+
   }
+
 }
 
 @media (min-width: 720px) {
   .expenses-list {
     margin: 2em 10%;
+
+    &-pagination {
+      position: relative;
+    }
+
+    .pagination-number {
+      text-align: center;
+    }
+
+    .arrow {
+      position: absolute;
+
+      &.left {
+        left: 15%;
+      }
+
+      &.right {
+        right: 15%;
+      }
+    }
   }
 }

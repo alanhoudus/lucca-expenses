@@ -4,9 +4,23 @@
 </app-add-expense>
 <div class="expenses-list">
   <app-expense-item
-    *ngFor="let expense of expenses"
+    *ngFor="let expense of currentExpensesPage"
     [expense]="expense"
     (expenseToDelete)="deleteExpense(expense)"
     (onSubmitEdit)="putExpense($event)"
   ></app-expense-item>
+  <div class="expenses-list-pagination">
+    <div class="pagination-number">Page {{ currentPageNumber }}</div>
+    <fa-icon
+    *ngIf="currentPageNumber !== 1"
+    [icon]="ArrowLeft"
+    class="arrow left fa-2xl"
+    (click)="lowerExpensePage()"
+    ></fa-icon>
+    <fa-icon
+    [icon]="ArrowRight"
+    class="arrow right fa-2xl"
+    (click)="higherExpensePage()"
+    ></fa-icon>
+  </div>
 </div>
