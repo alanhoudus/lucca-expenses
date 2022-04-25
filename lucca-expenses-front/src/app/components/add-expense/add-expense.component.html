@@ -11,12 +11,12 @@
   </div>
   <div class="form-control">
     <label for="price">Price of the expense : </label>
-    <input required type="number" name="price" [(ngModel)]="price" id="price" placeholder="20,00.." />
+    <input required type="number" name="price" [(ngModel)]="originalPrice" id="price" placeholder="20,00.." />
     <div class="form-error" *ngIf="priceError">{{ priceError }}</div>
   </div>
   <div class="form-control">
     <label for="currency">Currency : </label>
-    <select id="currency" name="currency" [(ngModel)]="currency">
+    <select id="currency" name="currency" [(ngModel)]="originalCurrency">
       <option selected disabled >Select a currency</option>
       <option value="EUR">EUR</option>
       <option value="GBP">GBP</option>

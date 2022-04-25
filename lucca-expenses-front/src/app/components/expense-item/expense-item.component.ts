@@ -16,10 +16,12 @@ export class ExpenseItemComponent implements OnInit {
 
   public currentNatureEdit: string = '';
   public currentDateEdit: string = '';
-  public currentPriceEdit: number = parseInt('');
-  public currentCurrencyEdit: string = '';
+  public currentOriginalPriceEdit: number = parseInt('');
+  public currentOriginalCurrencyEdit: string = '';
   public currentCommentEdit: string = '';
-  private currentExpenseId: string | undefined = '';
+  private currentExpenseId: string | undefined;
+  private currentConvertedPriceEdit: number;
+  private currentConvertedCurrencyEdit: string = 'EUR';
 
 
   public natureError: boolean = false;
@@ -43,8 +45,8 @@ export class ExpenseItemComponent implements OnInit {
   getCurrentExpense(expense: Expense): void {
     this.currentNatureEdit = expense.nature;
     this.currentDateEdit = expense.purchasedOn;
-    this.currentPriceEdit = expense.originalAmount.amount;
-    this.currentCurrencyEdit = expense.originalAmount.currency;
+    this.currentOriginalPriceEdit = parseInt(expense.originalAmount.amount.toFixed(2));
+    this.currentOriginalCurrencyEdit = expense.originalAmount.currency;
     this.currentCommentEdit = expense.comment;
     this.currentExpenseId = expense.id;
   }
@@ -63,19 +65,29 @@ export class ExpenseItemComponent implements OnInit {
     else if(this.currentDateEdit) {
       this.dateError = false;
     }
-    if(!this.currentPriceEdit) {
+    if(!this.currentOriginalPriceEdit) {
       this.priceError = true;
     }
-    else if(this.currentPriceEdit) {
+    else if(this.currentOriginalPriceEdit) {
       this.priceError = false;
     }
-    if(!this.currentCurrencyEdit) {
+    if(!this.currentOriginalCurrencyEdit) {
       this.currencyError = true;
     }
-    else if(this.currentCurrencyEdit) {
+    else if(this.currentOriginalCurrencyEdit) {
       this.currencyError = false;
+
+      if (this.currentOriginalCurrencyEdit === 'USD') {
+        this.currentConvertedPriceEdit = this.currentOriginalPriceEdit * 0.93;
+      }
+      else if(this.currentOriginalCurrencyEdit === 'GBP') {
+        this.currentConvertedPriceEdit = this.currentOriginalPriceEdit * 1.19;
+      }
+      else {
+        this.currentConvertedPriceEdit = this.currentOriginalPriceEdit;
+      }
     }
-    if (this.currentNatureEdit && this.currentDateEdit && this.currentPriceEdit && this.currentCurrencyEdit ) {
+    if (this.currentNatureEdit && this.currentDateEdit && this.currentOriginalPriceEdit && this.currentOriginalCurrencyEdit ) {
       this.natureError = false;
       this.dateError = false;
       this.priceError = false;
@@ -86,11 +98,16 @@ export class ExpenseItemComponent implements OnInit {
         nature: this.currentNatureEdit,
         purchasedOn: this.currentDateEdit,
         originalAmount: {
-          amount: this.currentPriceEdit,
-          currency: this.currentCurrencyEdit,
+          amount: this.currentOriginalPriceEdit,
+          currency: this.currentOriginalCurrencyEdit,
+        },
+        convertedAmount: {
+          amount: this.currentConvertedPriceEdit,
+          currency: this.currentConvertedCurrencyEdit
         },
         comment: this.currentCommentEdit
       }
+      console.log(editedExpense);
       this.toggleEditForm();
       this.onSubmitEdit.emit(editedExpense);
     }

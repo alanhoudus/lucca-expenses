@@ -10,7 +10,6 @@ export class AppComponent {
 
   newTotalExpenses(amount: number): void {
     this.totalExpenses = amount;
-    console.log(amount);
   }
 
 }

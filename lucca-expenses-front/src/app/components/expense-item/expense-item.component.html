@@ -2,11 +2,14 @@
 
   <div *ngIf="!editExpense" class="expense-element">
     <h2 class="expense-element-nature" >
-      {{ expense.nature }} : {{ expense.originalAmount.amount + expense.originalAmount.currency}}
+      {{ expense.nature }} : {{ expense.convertedAmount.amount + expense.convertedAmount.currency }}
     </h2>
-    <span class="expense-element-date">
-      {{ expense.purchasedOn }}
-    </span>
+    <div class="expense-element-original">
+      Original amount : {{ expense.originalAmount.amount + expense.originalAmount.currency }}
+    </div>
+    <div class="expense-element-date">
+      Purchased the : {{ expense.purchasedOn }}
+    </div>
     <p class="expense-element-comment">
       {{ expense.comment }}
     </p>
@@ -23,11 +26,11 @@
     </div>
     <div class="form-control">
       <label for="price">Price of the expense : </label>
-      <input [(ngModel)]="currentPriceEdit" [ngClass]="{ error: priceError }" required type="number" name="price" id="price" placeholder="20,00.." value="{{ currentPriceEdit }}" />
+      <input [(ngModel)]="currentOriginalPriceEdit" [ngClass]="{ error: priceError }" required type="number" name="price" id="price" placeholder="20,00.." />
     </div>
     <div class="form-control">
       <label for="currency">Currency : </label>
-      <select [(ngModel)]="currentCurrencyEdit" [ngClass]="{ error: currencyError }" id="currency" name="currency" >
+      <select [(ngModel)]="currentOriginalCurrencyEdit" [ngClass]="{ error: currencyError }" id="currency" name="currency" >
         <option value="EUR">EUR</option>
         <option value="GBP">GBP</option>
         <option value="USD">USD</option>

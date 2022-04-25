@@ -45,6 +45,7 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
     this.dateFilter = '';
     this.currentPageNumber = 1;
     this.getCurrentPageDatas();
+    console.log(this.currentExpensesPage)
   }
 
   /**
@@ -115,6 +116,7 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   addExpense(expense: Expense): void {
     const newSub = this.expenseService.postExpenseItem(expense).subscribe((expense: Expense) => {
       this.totalExpenses.push(expense);
+      this.currentExpensesPage.push(expense);
       this.expensesListModified.emit(this.totalExpenses.length);
     })
     this.subscriptions.push(newSub);
