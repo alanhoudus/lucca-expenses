@@ -57,29 +57,31 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
 
   /**
    * Removes an item and filters it out from the DOM
+   * Also removes it from the total expenses array and emit the new amount
    * @param expense the item to delete
    */
   deleteExpense(expense: Expense): void {
     const newSub = this.expenseService
     .deleteExpenseItem(expense)
-    .subscribe(() => (
-      this.currentExpensesPage = this.currentExpensesPage.filter(exp => exp.id !== expense.id)
-    ));
+    .subscribe(() => {
+      this.currentExpensesPage = this.currentExpensesPage.filter(exp => exp.id !== expense.id);
+      this.totalExpenses = this.totalExpenses.filter(exp => exp.id !== expense.id);
+      this.expensesListModified.emit(this.totalExpenses.length);
+    });
     this.subscriptions.push(newSub);
   }
 
   /**
    * When adding an expense
+   * Emit the new amount of expenses
    * @param expense the item to add
    */
   addExpense(expense: Expense): void {
-    console.log(this.totalExpenses);
     const newSub = this.expenseService.postExpenseItem(expense).subscribe((expense: Expense) => {
       this.totalExpenses.push(expense);
       this.expensesListModified.emit(this.totalExpenses.length);
     })
     this.subscriptions.push(newSub);
-    console.log(this.totalExpenses);
   }
 
   /**
@@ -87,10 +89,11 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
    * @param editedExpense the item to edit
    */
   putExpense(editedExpense: Expense): void {
-    const newSub = this.expenseService.putExpenseItem(editedExpense).subscribe();
+    const newSub = this.expenseService.putExpenseItem(editedExpense).subscribe(() => {
+      this.ngOnInit();
+    });
     this.subscriptions.push(newSub);
     // To view the modifications
-    this.ngOnInit();
   }
 
 }

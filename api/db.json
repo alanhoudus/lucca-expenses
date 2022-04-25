@@ -57,28 +57,6 @@
       "id": "0bb35f1d-1d81-4389-9cad-17aa557f8a82"
     },
     {
-      "nature": "test",
-      "purchasedOn": "20125-05-20",
-      "originalAmount": {
-        "amount": 225,
-        "currency": "GBP"
-      },
-      "createdAt": "2022-04-24T00:24:22.827Z",
-      "lastModifiedAt": "2022-04-24T00:24:22.827Z",
-      "id": "ce8fc41f-fbf3-4f42-9f0b-b82c581b2215"
-    },
-    {
-      "nature": "Test",
-      "purchasedOn": "2002-02-18",
-      "originalAmount": {
-        "amount": 68,
-        "currency": "EUR"
-      },
-      "createdAt": "2022-04-24T16:54:36.229Z",
-      "lastModifiedAt": "2022-04-24T16:54:36.229Z",
-      "id": "4b645118-2ae7-4b00-81c0-7543be59cdd8"
-    },
-    {
       "nature": "Piscine",
       "purchasedOn": "88425-02-20",
       "originalAmount": {
@@ -114,28 +92,6 @@
       "id": "4502a04a-99bb-4f4f-8b86-dcc6424a2dcd"
     },
     {
-      "nature": "test",
-      "purchasedOn": "1111-01-01",
-      "originalAmount": {
-        "amount": 11,
-        "currency": "GBP"
-      },
-      "createdAt": "2022-04-24T18:14:52.872Z",
-      "lastModifiedAt": "2022-04-24T18:14:52.872Z",
-      "id": "f1b52246-ee8d-4d88-945e-eb7ea2ebac02"
-    },
-    {
-      "nature": "Test",
-      "purchasedOn": "2022-10-12",
-      "originalAmount": {
-        "amount": 25,
-        "currency": "EUR"
-      },
-      "createdAt": "2022-04-24T18:40:51.134Z",
-      "lastModifiedAt": "2022-04-24T18:40:51.134Z",
-      "id": "be376c21-0b53-4cfc-b0e3-13eef7d41ed3"
-    },
-    {
       "nature": "Newtest",
       "purchasedOn": "2022-08-12",
       "originalAmount": {
@@ -148,17 +104,6 @@
       "id": "0d4921d0-6b26-44a8-8240-46e25fd49c6a"
     },
     {
-      "nature": "Test",
-      "purchasedOn": "2223-02-12",
-      "originalAmount": {
-        "amount": 484,
-        "currency": "GBP"
-      },
-      "createdAt": "2022-04-24T18:49:56.495Z",
-      "lastModifiedAt": "2022-04-24T18:49:56.495Z",
-      "id": "d86bb8a6-34c8-43c4-9299-e282819de27e"
-    },
-    {
       "nature": "Courses",
       "purchasedOn": "2022-07-18",
       "originalAmount": {
@@ -168,17 +113,6 @@
       "createdAt": "2022-04-24T18:55:54.105Z",
       "lastModifiedAt": "2022-04-24T18:55:54.105Z",
       "id": "b8e6b3b7-6bc3-4786-a743-fab97275f4e8"
-    },
-    {
-      "nature": "Test",
-      "purchasedOn": "2022-02-12",
-      "originalAmount": {
-        "amount": 218,
-        "currency": "EUR"
-      },
-      "createdAt": "2022-04-24T19:16:22.441Z",
-      "lastModifiedAt": "2022-04-24T19:16:22.441Z",
-      "id": "c62f77e4-8096-4350-b4c0-3cef1c8be7e9"
     },
     {
       "nature": "fezaoifbazefoi",
