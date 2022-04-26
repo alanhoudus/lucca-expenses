@@ -86,15 +86,18 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
       this.filterError = '';
     }
     if (this.filter && this.dateFilter) {
-
-      const newSub = this.expenseService.getFilteredExpensesData(this.dateFilter, this.filter, this.currentPageNumber, this.elementsToDisplay).subscribe((filteredExpenses) => {
-        this.currentPageNumber = 1;
-        this.currentExpensesPage = filteredExpenses;
-      });
-
-      this.subscriptions.push(newSub);
+      this.filterData();
     }
 
+  }
+
+  filterData() {
+    const newSub = this.expenseService.getFilteredExpensesData(this.dateFilter, this.filter, this.currentPageNumber, this.elementsToDisplay).subscribe((filteredExpenses) => {
+      this.currentPageNumber = 1;
+      this.currentExpensesPage = filteredExpenses;
+    });
+    this.calculateMaxPages();
+    this.subscriptions.push(newSub);
   }
 
   /**
@@ -126,7 +129,12 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   lowerExpensePage(): void {
     if (this.currentPageNumber !== 1) {
       this.currentPageNumber--;
-      this.getCurrentPageDatas(this.currentPageNumber, this.elementsToDisplay)
+      if (!this.filter) {
+        this.getCurrentPageDatas(this.currentPageNumber, this.elementsToDisplay)
+      }
+      else {
+        this.filterData();
+      }
     }
   }
 
@@ -136,7 +144,12 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   higherExpensePage() {
     if (this.maxPages !== this.currentPageNumber) {
       this.currentPageNumber++;
-    this.getCurrentPageDatas(this.currentPageNumber, this.elementsToDisplay)
+      if (!this.filter) {
+        this.getCurrentPageDatas(this.currentPageNumber, this.elementsToDisplay)
+      }
+      else {
+        this.filterData();
+      }
     }
 
   }
