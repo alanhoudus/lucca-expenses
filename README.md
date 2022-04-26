@@ -5,37 +5,58 @@ Technical test for Lucca
 ## Overview 🔍
 
 
-https://user-images.githubusercontent.com/88827792/165361639-432a382b-6018-4107-91f4-df1c6569fecb.mp4
+
+https://user-images.githubusercontent.com/88827792/165369309-395ea6f8-3548-4458-9b1b-10af6e1ca7c7.mp4
+
 
 
 ## Add a new expense ➕
 
-https://user-images.githubusercontent.com/88827792/165361984-63522bb3-0b02-4f48-95ad-c11d303261c1.mp4
 
-xpense
+
+
+https://user-images.githubusercontent.com/88827792/165369327-f44814c7-a33a-4282-867a-bb9ad4ed37bd.mp4
+
+
 
 ## Edit an expense 📋
 
 
-https://user-images.githubusercontent.com/88827792/165362001-dade5f02-793c-4fb5-9f15-f2ada2770d3d.mp4
+
+https://user-images.githubusercontent.com/88827792/165369336-d55eca1f-7629-4962-ba56-d7ffeefbc41a.mp4
+
+
+
 
 
 ## Delete an expense ❌
 
 
-https://user-images.githubusercontent.com/88827792/165362009-8b818077-1cf2-48fb-97a8-171d9c5ec8a6.mp4
+
+
+https://user-images.githubusercontent.com/88827792/165369349-a92e9086-874b-48b8-b1d4-fae8564b20dd.mp4
+
+
 
 
 ## Filter the expenses 🎚️
 
 
-https://user-images.githubusercontent.com/88827792/165362017-58cb554e-c2ee-49e5-a65b-69991d221047.mp4
+
+
+https://user-images.githubusercontent.com/88827792/165369357-d00f4953-c8ca-4c94-a998-901a6c61f194.mp4
+
+
 
 
 ## Change number of elements displayed 📱
 
 
-https://user-images.githubusercontent.com/88827792/165362042-a0ebf842-44e0-4e04-a63d-f915a39b6647.mp4
+
+
+https://user-images.githubusercontent.com/88827792/165369362-ce266abc-1093-4351-85db-38d58649dc5c.mp4
+
+
 
 
 ## Go further 📈
