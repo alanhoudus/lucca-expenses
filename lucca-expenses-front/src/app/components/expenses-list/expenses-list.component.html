@@ -23,7 +23,7 @@
         <div class="form-error" *ngIf="filterError">{{ filterError }}</div>
         <div class="form-group">
           <label for="dateFilter">
-            ...after the :
+            ...since :
           </label>
           <input [ngClass]="{ error: dateError }"  name="dateFilter" id="dateFilter" [(ngModel)]="dateFilter" type="date">
         </div>
