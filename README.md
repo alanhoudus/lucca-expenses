@@ -38,7 +38,7 @@ https://user-images.githubusercontent.com/88827792/165362017-58cb554e-c2ee-49e5-
 https://user-images.githubusercontent.com/88827792/165362042-a0ebf842-44e0-4e04-a63d-f915a39b6647.mp4
 
 
-## Go further 📱
+## Go further 📈
 
 - It'd have been better for the most recent data to be displayed first. Thought of it a bit late so it'd take longer. Could fix it by reversing the data on the API call.
 - Converting the currency, couldn't find a free API, the one I found didn't propose to convert, or give rating of the currencies I wanted.
