@@ -45,7 +45,7 @@ export class ExpenseItemComponent implements OnInit {
   getCurrentExpense(expense: Expense): void {
     this.currentNatureEdit = expense.nature;
     this.currentDateEdit = expense.purchasedOn;
-    this.currentOriginalPriceEdit = parseInt(expense.originalAmount.amount.toFixed(2));
+    this.currentOriginalPriceEdit = expense.originalAmount.amount;
     this.currentOriginalCurrencyEdit = expense.originalAmount.currency;
     this.currentCommentEdit = expense.comment;
     this.currentExpenseId = expense.id;
@@ -98,11 +98,11 @@ export class ExpenseItemComponent implements OnInit {
         nature: this.currentNatureEdit,
         purchasedOn: this.currentDateEdit,
         originalAmount: {
-          amount: this.currentOriginalPriceEdit,
+          amount: parseFloat(this.currentOriginalPriceEdit.toFixed(2)),
           currency: this.currentOriginalCurrencyEdit,
         },
         convertedAmount: {
-          amount: this.currentConvertedPriceEdit,
+          amount: parseFloat(this.currentConvertedPriceEdit.toFixed(2)),
           currency: this.currentConvertedCurrencyEdit
         },
         comment: this.currentCommentEdit

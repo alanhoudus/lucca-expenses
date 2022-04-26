@@ -85,11 +85,11 @@ export class AddExpenseComponent implements OnInit, OnDestroy {
         nature: this.nature,
         purchasedOn: this.date,
         originalAmount: {
-          amount: parseInt(this.originalPrice.toFixed(2)),
+          amount: parseFloat(this.originalPrice.toFixed(2)),
           currency: this.originalCurrency
         },
         convertedAmount: {
-          amount: this.convertedPrice,
+          amount: parseFloat(this.convertedPrice.toFixed(2)),
           currency: this.convertedCurrency
         },
         comment: this.comment

@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
           <label for="dateFilter">...après le : </label>
-          <input name="dateFilter" id="dateFilter" [(ngModel)]="dateFilter" type="date">
+          <input [ngClass]="{ error: dateError }"  name="dateFilter" id="dateFilter" [(ngModel)]="dateFilter" type="date">
         </div>
         <div class="form-group">
           <input type="submit" class="submit-button" value="Filtrer">
@@ -40,6 +40,7 @@
     (click)="lowerExpensePage()"
     ></fa-icon>
     <fa-icon
+    *ngIf="maxPages !== currentPageNumber"
     [icon]="ArrowRight"
     class="arrow right fa-2xl"
     (click)="higherExpensePage()"
