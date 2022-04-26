@@ -19,8 +19,10 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   public elementsToDisplay: number = 10;
   private subscriptions: Subscription[] = [];
 
-  public dateFilter: string = '';
+
   public dateError: boolean = false;
+  public filterError: string = '';
+  public dateFilter: string = '';
   public filter: string = '';
 
   public ArrowLeft = faArrowLeft;
@@ -68,25 +70,36 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
 
   /**
    * Filters results on the dateFilter
-   * Either returns a boolean on form error, or nothing
    */
-  filterSubmit(): void | boolean {
+  filterSubmit(): void {
 
     if (!this.dateFilter) {
-      return this.dateError = true;
+      this.dateError = true;
     }
-    this.dateError = false;
+    if (this.dateFilter) {
+      this.dateError = false;
+    }
+    if (!this.filter) {
+      this.filterError = 'Pick a filter';
+    }
+    if (this.filter) {
+      this.filterError = '';
+    }
+    if (this.filter && this.dateFilter) {
 
-    const newSub = this.expenseService.getFilteredExpensesData(this.dateFilter, this.filter, this.currentPageNumber, this.elementsToDisplay).subscribe((filteredExpenses) => {
-      this.currentPageNumber = 1;
-      this.currentExpensesPage = filteredExpenses;
-    });
+      const newSub = this.expenseService.getFilteredExpensesData(this.dateFilter, this.filter, this.currentPageNumber, this.elementsToDisplay).subscribe((filteredExpenses) => {
+        this.currentPageNumber = 1;
+        this.currentExpensesPage = filteredExpenses;
+      });
 
-    this.subscriptions.push(newSub);
+      this.subscriptions.push(newSub);
+    }
+
   }
 
   /**
-   * Get the classic expenses data
+   * Get the expenses data of the current Page
+    // TODO make it so that the most recent expenses are first. It would be easier through http request if the data was already reversed
    */
   getCurrentPageDatas(pageDisplayed: number, numberOfElements: number): void {
     const newSub = this.expenseService.getCurrentExpensesPageData(this.currentPageNumber, this.elementsToDisplay).subscribe((currentExpenses: Expense[]) => (
@@ -137,6 +150,7 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
     const newSub = this.expenseService
     .deleteExpenseItem(expense)
     .subscribe(() => {
+      this.totalExpenses = this.totalExpenses.filter(exp => exp.id !== expense.id);
       this.currentExpensesPage = this.currentExpensesPage.filter(exp => exp.id !== expense.id);
       this.expensesListModified.emit(this.totalExpenses.length);
       this.getAllExpenses();
@@ -152,7 +166,8 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
    */
   addExpense(expense: Expense): void {
     const newSub = this.expenseService.postExpenseItem(expense).subscribe((expense: Expense) => {
-      this.currentExpensesPage.unshift(expense);
+      this.currentExpensesPage.push(expense);
+      this.totalExpenses.push(expense);
       this.expensesListModified.emit(this.totalExpenses.length);
       this.getAllExpenses();
     })
