@@ -8,11 +8,13 @@
       Original amount : {{ expense.originalAmount.amount + expense.originalAmount.currency }}
     </div>
     <div class="expense-element-date">
-      Purchased the : {{ expense.purchasedOn }}
+      <div>Purchased the : {{ expense.purchasedOn }}</div>
+      <div>Modified the : {{ expense.lastModifiedAt }}</div>
+      <div>Created the : {{ expense.createdAt }}</div>
     </div>
-    <p class="expense-element-comment">
+    <div class="expense-element-comment">
       {{ expense.comment }}
-    </p>
+    </div>
   </div>
 
   <form *ngIf="editExpense" (ngSubmit)="onSubmit()">

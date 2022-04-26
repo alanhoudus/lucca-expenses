@@ -1,7 +1,7 @@
 import { Observable, Subscription } from "rxjs";
 
 export interface Expense {
-  id?: string,
+  readonly id?: string,
   purchasedOn: string,
   nature: string,
   originalAmount: {
@@ -13,7 +13,7 @@ export interface Expense {
     currency: string,
   },
   comment: string,
-  createdAt?: string,
-  lastModifiedAt?: string,
+  readonly createdAt?: string,
+  readonly lastModifiedAt?: string,
 }
 
