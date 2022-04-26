@@ -40,12 +40,18 @@ export class AddExpenseComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    // For each subscription, remove the subscription onDestroy of component
     for (const sub of this.subscriptions) {
       sub.unsubscribe();
     }
   }
-  // TODO Array of errors
+  /**
+   * On submit of the form to add a new expense
+   * Checks if there are form errors
+   * Else, emit the new expense object, resets and closes the form
+   */
   onSubmit(): void {
+    // Could have also done an empty array and add errors
     if (!this.nature) {
       this.natureError = 'Please, add a nature for the expense'
     }

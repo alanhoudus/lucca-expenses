@@ -38,7 +38,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
-  // Successful submit was made
+  /**
+   * Successful submit was made
+   * Closes the form and change the button value
+   * Recalculates the number of expenses
+   */
   toggleAddExpense(): void {
     // reverse showAddExpense (to close the form)
     this.uiService.toggleAddExpense();

@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public totalExpenses: number;
 
+  /**
+   * @param amount the total amount of expenses
+   */
   newTotalExpenses(amount: number): void {
     this.totalExpenses = amount;
   }

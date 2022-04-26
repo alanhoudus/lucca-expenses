@@ -4,23 +4,34 @@
 
     &-pagination {
       position: relative;
-    }
 
-    .pagination-number {
-      text-align: center;
-    }
-
-    .arrow {
-      position: absolute;
-
-      &.left {
-        left: 5%;
+      .pagination-number {
+        text-align: center;
       }
 
-      &.right {
-        right: 5%;
+        .arrow {
+          position: absolute;
+
+          &.left {
+            left: 5%;
+          }
+
+          &.right {
+            right: 5%;
+          }
+        }
+
+      .elements-display {
+        margin: 1.5em auto;
+        width: 40%;
+
+        input {
+          border-radius: 5px;
+        }
       }
     }
+
+
 
     .error {
       border: 2px solid red;
@@ -53,6 +64,7 @@
       }
     }
 
+
   }
 
 }
@@ -63,21 +75,30 @@
 
     &-pagination {
       position: relative;
-    }
 
-    .pagination-number {
-      text-align: center;
-    }
-
-    .arrow {
-      position: absolute;
-
-      &.left {
-        left: 15%;
+      .pagination-number {
+        text-align: center;
       }
 
-      &.right {
-        right: 15%;
+      .arrow {
+        position: absolute;
+
+        &.left {
+          left: 15%;
+        }
+
+        &.right {
+          right: 15%;
+        }
+      }
+
+      .elements-display {
+        margin: 1.5em auto;
+        width: 25%;
+
+        input {
+          border-radius: 5px;
+        }
       }
     }
 

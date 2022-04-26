@@ -6,21 +6,29 @@
   <div>
     <form (ngSubmit)="filterSubmit()">
       <div class="form-group radios" >
-        Trier par :
-          <label for="modifiedAt">Créé</label>
+        Filter by :
+          <label for="modifiedAt">
+            Created
+          </label>
           <input [(ngModel)]="filter" type="radio" name="createdAt" id="createdAt" value="createdAt">
-          <label for="modifiedAt">Acheté</label>
+          <label for="modifiedAt">
+            Bought
+          </label>
           <input [(ngModel)]="filter" type="radio" name="purchasedOn" id="purchasedOn" value="purchasedOn">
-          <label for="modifiedAt">Modifié</label>
+          <label for="modifiedAt">
+            Modified
+          </label>
           <input [(ngModel)]="filter" type="radio" name="modifiedAt" id="modifiedAt" value="modifiedAt">
         </div>
         <div class="form-group">
-          <label for="dateFilter">...après le : </label>
+          <label for="dateFilter">
+            ...after the :
+          </label>
           <input [ngClass]="{ error: dateError }"  name="dateFilter" id="dateFilter" [(ngModel)]="dateFilter" type="date">
         </div>
         <div class="form-group">
-          <input type="submit" class="submit-button" value="Filtrer">
-          <input type="button" (click)="unfilter()" class="submit-button" value="Retirer le filtre">
+          <input type="submit" class="submit-button" value="Filter">
+          <input type="button" (click)="unfilter()" class="submit-button" value="Remove filter">
         </div>
     </form>
 
@@ -32,7 +40,9 @@
     (onSubmitEdit)="putExpense($event)"
   ></app-expense-item>
   <div class="expenses-list-pagination">
-    <div class="pagination-number">Page {{ currentPageNumber }}</div>
+    <div class="pagination-number">
+      Page {{ currentPageNumber }}
+    </div>
     <fa-icon
     *ngIf="currentPageNumber !== 1"
     [icon]="ArrowLeft"
@@ -45,5 +55,12 @@
     class="arrow right fa-2xl"
     (click)="higherExpensePage()"
     ></fa-icon>
+    <form (ngSubmit)="changePaginationFormat()" class="elements-display">
+      <label for="elementsDisplayed">
+        Expenses to display
+      </label>
+      <input [(ngModel)]="elementsToDisplay" name="elementsDisplayed" id="elementsDisplayed" type="number">
+      <input class="submit-button" type="submit" value="Change format">
+    </form>
   </div>
 </div>
