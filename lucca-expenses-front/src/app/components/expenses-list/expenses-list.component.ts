@@ -16,6 +16,7 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   public totalExpenses: Expense[] = [];
   public currentPageNumber: number = 1;
   public maxPages: number;
+  public elementsToDisplay: number = 10;
   private subscriptions: Subscription[] = [];
 
   public dateFilter: string = '';
@@ -28,7 +29,7 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   constructor(private expenseService: ExpenseService) {}
 
   ngOnInit(): void {
-  this.getCurrentPageDatas();
+  this.getCurrentPageDatas(this.currentPageNumber, this.elementsToDisplay);
   this.getAllExpenses();
   }
 
@@ -40,17 +41,34 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * On submit of the form, change the number of displayed items
+   */
+  changePaginationFormat():void {
+    this.currentPageNumber = 1;
+    this.getCurrentPageDatas(this.currentPageNumber, this.elementsToDisplay);
+    this.calculateMaxPages();
+  }
+
+  /**
+   * Calculate the number of pages regarding the amount of total expenses and the number of elements to be displayed
+   */
+  calculateMaxPages():void {
+    this.maxPages = Math.ceil(this.totalExpenses.length / this.elementsToDisplay);
+  }
+
+  /**
    * Reloads the first page with default data
    */
   unfilter(): void {
     this.filter = '';
     this.dateFilter = '';
     this.currentPageNumber = 1;
-    this.getCurrentPageDatas();
+    this.getCurrentPageDatas(this.currentPageNumber, this.elementsToDisplay);
   }
 
   /**
    * Filters results on the dateFilter
+   * Either returns a boolean on form error, or nothing
    */
   filterSubmit(): void | boolean {
 
@@ -59,7 +77,7 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
     }
     this.dateError = false;
 
-    const newSub = this.expenseService.getFilteredExpensesData(this.dateFilter, this.filter, this.currentPageNumber).subscribe((filteredExpenses) => {
+    const newSub = this.expenseService.getFilteredExpensesData(this.dateFilter, this.filter, this.currentPageNumber, this.elementsToDisplay).subscribe((filteredExpenses) => {
       this.currentPageNumber = 1;
       this.currentExpensesPage = filteredExpenses;
     });
@@ -70,8 +88,8 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   /**
    * Get the classic expenses data
    */
-  getCurrentPageDatas(): void {
-    const newSub = this.expenseService.getCurrentExpensesPageData(this.currentPageNumber).subscribe((currentExpenses: Expense[]) => (
+  getCurrentPageDatas(pageDisplayed: number, numberOfElements: number): void {
+    const newSub = this.expenseService.getCurrentExpensesPageData(this.currentPageNumber, this.elementsToDisplay).subscribe((currentExpenses: Expense[]) => (
       this.currentExpensesPage = currentExpenses));
 
     this.subscriptions.push(newSub);
@@ -79,11 +97,12 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
 
   /**
    * Get all the datas to get the length of the collection
+   * And calculate the number of pages
    */
   getAllExpenses(): void {
     const newSub = this.expenseService.getTotalExpensesData().subscribe((totalExpenses: Expense[]) => {
       this.totalExpenses = totalExpenses;
-      this.maxPages = Math.ceil(this.totalExpenses.length / 10);
+      this.calculateMaxPages();
     });
 
     this.subscriptions.push(newSub);
@@ -94,7 +113,7 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   lowerExpensePage(): void {
     if (this.currentPageNumber !== 1) {
       this.currentPageNumber--;
-      this.ngOnInit();
+      this.getCurrentPageDatas(this.currentPageNumber, this.elementsToDisplay)
     }
   }
 
@@ -104,7 +123,7 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   higherExpensePage() {
     if (this.maxPages !== this.currentPageNumber) {
       this.currentPageNumber++;
-    this.ngOnInit();
+    this.getCurrentPageDatas(this.currentPageNumber, this.elementsToDisplay)
     }
 
   }
@@ -141,7 +160,8 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Edit an item
+   * Edits an item
+   * And reloads the data
    * @param editedExpense the item to edit
    */
   putExpense(editedExpense: Expense): void {
@@ -149,7 +169,6 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
       this.ngOnInit();
     });
     this.subscriptions.push(newSub);
-    // To view the modifications
   }
 
 }

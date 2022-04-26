@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, Inject, LOCALE_ID } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 // interface
 import { Expense } from 'src/app/Expenses';
 // icons
@@ -36,12 +36,16 @@ export class ExpenseItemComponent implements OnInit {
   public editExpense: boolean = false;
 
 
-  constructor(@Inject(LOCALE_ID) public locale: string) {
+  constructor() {
   }
 
   ngOnInit(): void {
   }
 
+  /**
+   * When the user clicks on the edit button of an item
+   * @param expense The targeted item object expense to be displayed in the inputs
+   */
   getCurrentExpense(expense: Expense): void {
     this.currentNatureEdit = expense.nature;
     this.currentDateEdit = expense.purchasedOn;
@@ -51,8 +55,14 @@ export class ExpenseItemComponent implements OnInit {
     this.currentExpenseId = expense.id;
   }
 
-  // TODO Array of errors
+  /**
+   * On submit of the edit expense
+   * Checks for form errors
+   * Emits the edited object to be put
+   * Closes the form
+   */
   onSubmit():void {
+    // Could have also done an empty array and add errors
     if(!this.currentNatureEdit) {
       this.natureError = true;
     }
@@ -88,10 +98,6 @@ export class ExpenseItemComponent implements OnInit {
       }
     }
     if (this.currentNatureEdit && this.currentDateEdit && this.currentOriginalPriceEdit && this.currentOriginalCurrencyEdit ) {
-      this.natureError = false;
-      this.dateError = false;
-      this.priceError = false;
-      this.currencyError = false;
 
       const editedExpense = {
         id: this.currentExpenseId,
@@ -107,7 +113,6 @@ export class ExpenseItemComponent implements OnInit {
         },
         comment: this.currentCommentEdit
       }
-      console.log(editedExpense);
       this.toggleEditForm();
       this.onSubmitEdit.emit(editedExpense);
     }
@@ -115,10 +120,17 @@ export class ExpenseItemComponent implements OnInit {
 
   }
 
+  /**
+   * Inverse the value of editExpense to open or close the edit form
+   */
   toggleEditForm(): void {
     this.editExpense = !this.editExpense;
   }
 
+    /**
+   * Emit the object to be deleted
+   * @param expense object to be deleted
+   */
   onDeleteExpense(expense: Expense) {
     this.expenseToDelete.emit(expense)
   }

@@ -15,7 +15,10 @@ export class ButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClick() {
+  /**
+   * Button that display the add expense form
+   */
+  onClick():void {
     this.btnClick.emit();
   }
 
