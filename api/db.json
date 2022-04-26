@@ -17,68 +17,6 @@
       "lastModifiedAt": "2022-04-26T15:23:43.389Z"
     },
     {
-      "id": "727212a5-4d73-4615-bd23-d7df6f562491",
-      "purchasedOn": "2018-02-08",
-      "nature": "Spa",
-      "originalAmount": {
-        "amount": 18,
-        "currency": "GBP"
-      },
-      "convertedAmount": {
-        "amount": 21.42,
-        "currency": "EUR"
-      },
-      "comment": "Mission de 5 jours à Londres",
-      "createdAt": "2018-12-05T14:00:34.435154Z",
-      "lastModifiedAt": "2022-04-26T16:15:43.983Z"
-    },
-    {
-      "nature": "Taxi",
-      "purchasedOn": "2022-04-28",
-      "originalAmount": {
-        "amount": 25,
-        "currency": "EUR"
-      },
-      "convertedAmount": {
-        "amount": 25,
-        "currency": "EUR"
-      },
-      "createdAt": "2022-04-25T22:51:21.634Z",
-      "lastModifiedAt": "2022-04-25T22:51:21.634Z",
-      "id": "cb3ea5db-b29a-4ef3-91ec-2586e67731dc"
-    },
-    {
-      "nature": "Courses",
-      "purchasedOn": "2021-01-05",
-      "originalAmount": {
-        "amount": 80,
-        "currency": "USD"
-      },
-      "convertedAmount": {
-        "amount": 74.4,
-        "currency": "EUR"
-      },
-      "createdAt": "2022-04-25T22:53:22.859Z",
-      "lastModifiedAt": "2022-04-25T22:53:22.859Z",
-      "id": "bf1e438b-8b55-4a5f-a8ff-4490af0f7e4d"
-    },
-    {
-      "nature": "Avion",
-      "purchasedOn": "2022-04-26",
-      "originalAmount": {
-        "amount": 480,
-        "currency": "EUR"
-      },
-      "convertedAmount": {
-        "amount": 480,
-        "currency": "EUR"
-      },
-      "comment": "Voyage d'affaires en Europe",
-      "createdAt": "2022-04-25T23:03:38.977Z",
-      "lastModifiedAt": "2022-04-25T23:03:46.298Z",
-      "id": "434230ea-9687-465c-83f0-9e453593cc21"
-    },
-    {
       "nature": "Ubereat",
       "purchasedOn": "2022-04-12",
       "originalAmount": {
@@ -188,6 +126,53 @@
       "createdAt": "2022-04-26T15:11:12.513Z",
       "lastModifiedAt": "2022-04-26T15:11:12.513Z",
       "id": "d5fa100d-4b26-478f-af09-3b86d472fd49"
+    },
+    {
+      "nature": "Hotel",
+      "purchasedOn": "2022-07-28",
+      "originalAmount": {
+        "amount": 65,
+        "currency": "GBP"
+      },
+      "convertedAmount": {
+        "amount": 77.35,
+        "currency": "EUR"
+      },
+      "createdAt": "2022-04-26T17:01:01.384Z",
+      "lastModifiedAt": "2022-04-26T17:01:10.684Z",
+      "id": "b9a4eae4-1bc2-4616-b3bd-9eadfc3fccae",
+      "comment": "2 nuits"
+    },
+    {
+      "nature": "Course de taxi",
+      "purchasedOn": "2022-04-24",
+      "originalAmount": {
+        "amount": 25,
+        "currency": "USD"
+      },
+      "convertedAmount": {
+        "amount": 23.25,
+        "currency": "EUR"
+      },
+      "createdAt": "2022-04-26T17:17:26.840Z",
+      "lastModifiedAt": "2022-04-26T17:17:26.840Z",
+      "id": "2547908d-d0fd-45bb-b838-315898899f32"
+    },
+    {
+      "nature": "Plane tickets",
+      "purchasedOn": "2022-04-26",
+      "originalAmount": {
+        "amount": 250,
+        "currency": "USD"
+      },
+      "convertedAmount": {
+        "amount": 232.5,
+        "currency": "EUR"
+      },
+      "createdAt": "2022-04-26T17:18:57.195Z",
+      "lastModifiedAt": "2022-04-26T17:19:10.779Z",
+      "id": "47af6bbf-160f-43c9-b531-1fbe4a6dcd70",
+      "comment": "Paris to New York"
     }
   ]
 }
