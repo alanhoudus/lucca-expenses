@@ -25,9 +25,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.uiService.getExpensesAmount().subscribe((expenses: Expense[]) => (
+    const newSub = this.uiService.getExpensesAmount().subscribe((expenses: Expense[]) => (
       this.totalExpenses = expenses.length
     ))
+    this.subscriptions.push(newSub);
   }
 
   ngOnDestroy(): void {

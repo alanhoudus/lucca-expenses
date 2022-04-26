@@ -24,7 +24,7 @@ export class ExpenseService {
     return this.http.get<Expense[]>(url);
   }
 
-  // Could have use X-Total-Count in getCurrentExpensesPageData, but wasn't sure how to pass the data
+  // Could have use X-Total-Count in getCurrentExpensesPageData, but wasn't sure how to pass the data in getCurrentExpensesPageData()
   getTotalExpensesData(): Observable<Expense[]> {
     return this.http.get<Expense[]>(this.apiUrl);
   }

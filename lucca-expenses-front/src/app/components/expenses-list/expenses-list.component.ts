@@ -14,10 +14,12 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
 
   public currentExpensesPage: Expense[] = [];
   public totalExpenses: Expense[] = [];
-  private subscriptions: Subscription[] = [];
   public currentPageNumber: number = 1;
+  public maxPages: number;
+  private subscriptions: Subscription[] = [];
 
   public dateFilter: string = '';
+  public dateError: boolean = false;
   public filter: string = '';
 
   public ArrowLeft = faArrowLeft;
@@ -40,44 +42,56 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   /**
    * Reloads the first page with default data
    */
-  unfilter() {
+  unfilter(): void {
     this.filter = '';
     this.dateFilter = '';
     this.currentPageNumber = 1;
     this.getCurrentPageDatas();
-    console.log(this.currentExpensesPage)
   }
 
   /**
    * Filters results on the dateFilter
    */
-  filterSubmit() {
+  filterSubmit(): void | boolean {
 
-    this.expenseService.getFilteredExpensesData(this.dateFilter, this.filter, this.currentPageNumber).subscribe((filteredExpenses) => {
+    if (!this.dateFilter) {
+      return this.dateError = true;
+    }
+    this.dateError = false;
+
+    const newSub = this.expenseService.getFilteredExpensesData(this.dateFilter, this.filter, this.currentPageNumber).subscribe((filteredExpenses) => {
       this.currentPageNumber = 1;
       this.currentExpensesPage = filteredExpenses;
     });
+
+    this.subscriptions.push(newSub);
   }
 
   /**
    * Get the classic expenses data
    */
-  getCurrentPageDatas() {
-    this.expenseService.getCurrentExpensesPageData(this.currentPageNumber).subscribe((currentExpenses: Expense[]) => (
+  getCurrentPageDatas(): void {
+    const newSub = this.expenseService.getCurrentExpensesPageData(this.currentPageNumber).subscribe((currentExpenses: Expense[]) => (
       this.currentExpensesPage = currentExpenses));
+
+    this.subscriptions.push(newSub);
   }
 
   /**
    * Get all the datas to get the length of the collection
    */
-  getAllExpenses() {
-    this.expenseService.getTotalExpensesData().subscribe((totalExpenses: Expense[]) => (
-      this.totalExpenses = totalExpenses));
+  getAllExpenses(): void {
+    const newSub = this.expenseService.getTotalExpensesData().subscribe((totalExpenses: Expense[]) => {
+      this.totalExpenses = totalExpenses;
+      this.maxPages = Math.ceil(this.totalExpenses.length / 10);
+    });
+
+    this.subscriptions.push(newSub);
   }
   /**
    * Decrements the currentPageNumber to display a new page
    */
-  lowerExpensePage() {
+  lowerExpensePage(): void {
     if (this.currentPageNumber !== 1) {
       this.currentPageNumber--;
       this.ngOnInit();
@@ -88,8 +102,11 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
    * Increments the currentPageNumber to display a new page
    */
   higherExpensePage() {
-    this.currentPageNumber++;
+    if (this.maxPages !== this.currentPageNumber) {
+      this.currentPageNumber++;
     this.ngOnInit();
+    }
+
   }
 
   /**
@@ -102,8 +119,8 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
     .deleteExpenseItem(expense)
     .subscribe(() => {
       this.currentExpensesPage = this.currentExpensesPage.filter(exp => exp.id !== expense.id);
-      this.totalExpenses = this.totalExpenses.filter(exp => exp.id !== expense.id);
       this.expensesListModified.emit(this.totalExpenses.length);
+      this.getAllExpenses();
     });
     this.subscriptions.push(newSub);
   }
@@ -111,13 +128,14 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   /**
    * When adding an expense
    * Emit the new amount of expenses
+   * Pushes it on both arrays, and gets the new data
    * @param expense the item to add
    */
   addExpense(expense: Expense): void {
     const newSub = this.expenseService.postExpenseItem(expense).subscribe((expense: Expense) => {
-      this.totalExpenses.push(expense);
-      this.currentExpensesPage.push(expense);
+      this.currentExpensesPage.unshift(expense);
       this.expensesListModified.emit(this.totalExpenses.length);
+      this.getAllExpenses();
     })
     this.subscriptions.push(newSub);
   }
